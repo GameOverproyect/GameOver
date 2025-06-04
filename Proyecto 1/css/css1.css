@@ -1,47 +1,266 @@
+/* Reset y base */
 body {
   margin: 0;
   padding: 0;
-  background-color: #d3d3d3;
   font-family: Arial, sans-serif;
-}
-
-header {
   text-align: center;
-  padding-top: 50px; /* espacio superior */
+  position: relative;
+  overflow-x: hidden;
+  background-color: #d3d3d3;
 }
 
-.logo-container {
-  display: inline-block;
-  animation: fadeInUp 1.2s ease-out;
+/* Fondo con blur */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('../Imagenes/Fondo.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: -1;
 }
 
+/* Header */
+header {
+  padding-top: 40px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Logo */
 .logo {
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
   height: auto;
+  margin-bottom: 10px;
   opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
+  transform: translateY(-30px);
+  animation: aparecerLogo 1.5s ease-out forwards;
+}
+
+/* Título decorado */
+.titulo-decorado {
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 28px;
+  line-height: 1.2;
+  opacity: 0;
+  animation: aparecerTitulo 1.5s ease-out 1.2s forwards;
+}
+
+.decor-line {
+  margin: 0;
+  font-weight: bold;
+}
+
+.titulo-texto {
+  margin: 0;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 /* Animaciones */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
+@keyframes aparecerLogo {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
+@keyframes aparecerTitulo {
   to {
-    transform: translateY(0);
     opacity: 1;
   }
+}
+
+@keyframes aparecerBotones {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedor de botones - centrado horizontal y vertical */
+.botones-container {
+    margin: 30px auto 50px; /* Margen superior, auto para centrar horizontalmente, margen inferior */
+    max-width: 1000px; /* Ancho máximo para los botones. Ajusta si es necesario. */
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra los ítems (botones) horizontalmente en el contenedor */
+    align-items: flex-start; /* Alinea los ítems al inicio del contenedor en el eje cruzado (vertical) */
+                          /* Lo cambié de 'center' a 'flex-start' porque con 'center' puede empujar el main.
+                             Si quieres que ocupe todo el espacio vertical disponible y los centre, deja 'center' */
+    flex-wrap: wrap; /* Permite que los botones salten a la siguiente línea si no hay espacio */
+    gap: 20px; /* Separación entre los botones */
+    min-height: 300px; /* Ajusta según el espacio vertical deseado para tus botones.
+                          Si no tienes mucho contenido arriba, quizás no necesites un min-height tan alto. */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecerBotones 1.5s ease-out forwards;
+    animation-delay: 1.6s;
+}
+
+/* Botones */
+.boton-desplegable {
+  position: relative;
+  width: 200px;  /* más ancho para botón grande */
+  margin: 10px;
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  padding: 16px 0; /* más alto para botón grande */
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #555;
+  color: white;
+  border-radius: 30px; /* bordes redondeados grandes */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover con efecto sombra y color más oscuro */
+.btn:hover {
+  background-color: #333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Panel oculto */
+.panel {
+  display: none;
+  background-color: white;
+  margin-top: 0px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  color: #222;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
+
+/* Mostrar panel al hacer hover sobre el botón */
+.boton-desplegable:hover .panel {
+  display: block;
+}
+
+/* Lista dentro del panel */
+.panel ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.panel ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.panel ul li:last-child {
+  border-bottom: none;
+}
+
+.panel ul li:hover {
+  background-color: #ddd;
+}
+
+
+.btn-img {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.btn-img:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Botón desplegable: contenedor */
+.boton-desplegable {
+  position: relative;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Imagen principal */
+.boton-desplegable .btn-img {
+  display: block;
+  width: 100%;
+  border-radius: 30px;
+  transition: opacity 0.4s ease;
+  position: relative;
+  z-index: 2; /* encima del hover-img */
+}
+
+/* Imagen hover: empieza oculta y en posición absoluta para superponerse */
+.boton-desplegable .btn-img.hover-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1; /* debajo de la imagen principal */
+}
+
+/* Al hacer hover en el contenedor, se oculta la imagen principal y aparece la hover */
+.boton-desplegable:hover .btn-img {
+  opacity: 0;
+}
+
+.boton-desplegable:hover .btn-img.hover-img {
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Panel desplegable */
+.boton-desplegable .panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  font-size: 16px;
+  color: #222;
+  text-align: left;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Mostrar panel al hacer hover en el botón */
+.boton-desplegable:hover .panel {
+  display: block;
+}
+
+/* Fondo difuminado en panel con la segunda imagen */
+.boton-desplegable .panel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Imagenes/Mario2.jpeg'); /* Ajusta la ruta a tu estructura */
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  opacity: 0.4;
+  border-radius: 6px;
+  z-index: -1;
+  pointer-events: none; /* Para que no interfiera en clicks */
 }
