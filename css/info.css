@@ -1,0 +1,30 @@
+.todo {
+  display: flex;
+  align-items: center; /* Alinea verticalmente al centro */
+  justify-content: center; /* Centra el contenido si hay espacio */
+  gap: 20px; /* Espacio entre la imagen y el texto */
+  padding: 20px;
+  flex-wrap: wrap; /* Por si en pantallas pequeñas quieres que se acomoden uno debajo del otro */
+}
+
+.imgfon img {
+  max-width: 400px; /* Tamaño máximo de la imagen */
+  width: 100%; /* Que no se pase de su contenedor */
+  height: auto; /* Mantener proporción */
+  border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+.txt {
+  max-width: 600px;
+  text-align: justify;
+  font-size: 18px;
+  color: #333;
+}
+.txt h2 {
+  margin-top: 0; /* Elimina espacio arriba */
+  margin-bottom: 30px;
+  font-size: 35px; /* O más si quieres */
+  color: #000000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}

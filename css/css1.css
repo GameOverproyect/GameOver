@@ -25,27 +25,30 @@ body::before {
 
 /* Header */
 header {
-  padding-top: 40px;
-  margin-top: 20px;
-  text-align: center;
+  display: flex;
+  align-items: center;       /*vertical*/
+  justify-content: left;   /* horizontal*/
+  padding-top: 10px;
+  margin-top: 10px;
+  gap:0px;                 /* logo espacio */
 }
 
 /* Logo */
 .logo {
-  max-width: 400px;
+  max-width: 200px;
   width: 100%;
   height: auto;
   margin-bottom: 10px;
   opacity: 0;
   transform: translateY(-30px);
-  animation: aparecerLogo 1.5s ease-out forwards;
+  animation: aparecerLogo 1.5s ease-out forwards
 }
 
 /* Título decorado */
 .titulo-decorado {
   color: #ffffff;
   font-family: 'Courier New', monospace;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1.2;
   opacity: 0;
   animation: aparecerTitulo 1.5s ease-out 1.2s forwards;
@@ -58,7 +61,7 @@ header {
 
 .titulo-texto {
   margin: 0;
-  font-size: 48px;
+  font-size: 38px;
   font-weight: bold;
 }
 
@@ -86,20 +89,20 @@ header {
 /* Contenedor de botones - centrado horizontal y vertical */
 .botones-container {
     margin: 30px auto 50px; /* Margen superior, auto para centrar horizontalmente, margen inferior */
-    max-width: 1000px; /* Ancho máximo para los botones. Ajusta si es necesario. */
+    max-width: 1500px; /* Ancho máximo para los botones. Ajusta si es necesario. */
     display: flex; /* Habilita Flexbox */
     justify-content: center; /* Centra los ítems (botones) horizontalmente en el contenedor */
     align-items: flex-start; /* Alinea los ítems al inicio del contenedor en el eje cruzado (vertical) */
                           /* Lo cambié de 'center' a 'flex-start' porque con 'center' puede empujar el main.
                              Si quieres que ocupe todo el espacio vertical disponible y los centre, deja 'center' */
     flex-wrap: wrap; /* Permite que los botones salten a la siguiente línea si no hay espacio */
-    gap: 20px; /* Separación entre los botones */
+    gap: 30px; /* Separación entre los botones */
     min-height: 300px; /* Ajusta según el espacio vertical deseado para tus botones.
                           Si no tienes mucho contenido arriba, quizás no necesites un min-height tan alto. */
     opacity: 0;
     transform: translateY(20px);
     animation: aparecerBotones 1.5s ease-out forwards;
-    animation-delay: 1.6s;
+    animation-delay: 1.7;
 }
 
 /* Botones */
@@ -139,7 +142,7 @@ header {
   padding: 10px;
   font-size: 16px;
   color: #222;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 100%;
   left: 0;
@@ -170,6 +173,35 @@ header {
 
 .panel ul li:hover {
   background-color: #ddd;
+}
+.panel li a {
+  /* Hacemos que el enlace ocupe todo el espacio disponible. */
+  display: block;
+
+  /* Aplicamos aquí el padding. 12px arriba/abajo, 20px a los lados. */
+  padding: 12px 20px; 
+  
+  /* Tomamos el color oscuro que definiste en tu .panel. */
+  color: #222; 
+  
+  /* Tu tamaño de fuente. */
+  font-size: 16px; 
+  font-family: sans-serif; /* O la fuente que prefieras */
+  
+  /* Quitamos el subrayado. */
+  text-decoration: none; 
+  
+  /* Animación suave para el cambio de color. */
+  transition: background-color 0.2s;
+}
+
+/* --- 4. EFECTO HOVER PARA EL TEMA CLARO --- */
+.panel li a:hover {
+  /* Un fondo gris muy claro al pasar el ratón. Es sutil y elegante. */
+  background-color: #f2f2f2;
+  
+  /* Opcional: puedes hacer el texto un poco más oscuro si quieres. */
+  /* color: #000; */
 }
 
 
@@ -222,7 +254,7 @@ header {
 
 .boton-desplegable:hover .btn-img.hover-img {
   opacity: 1;
-  z-index: 3;
+  z-index: 1;
 }
 
 /* Panel desplegable */
@@ -248,19 +280,3 @@ header {
   display: block;
 }
 
-/* Fondo difuminado en panel con la segunda imagen */
-.boton-desplegable .panel::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('Imagenes/Mario2.jpeg'); /* Ajusta la ruta a tu estructura */
-  background-size: cover;
-  background-position: center;
-  filter: blur(6px);
-  opacity: 0.4;
-  border-radius: 6px;
-  z-index: -1;
-  pointer-events: none; /* Para que no interfiera en clicks */
-}

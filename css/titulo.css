@@ -1,0 +1,80 @@
+/* Reset y base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #d3d3d3;
+}
+
+/* Fondo con blur */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('../Imagenes/fondo.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;       /* Alinea verticalmente logo y título */
+  justify-content: center;   /* Centra horizontalmente ambos elementos */
+  padding-top: 10px;
+  margin-top: 10px;
+  gap: 0px;
+}
+
+/* Logo */
+.logo {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: aparecerLogo 1.5s ease-out forwards;
+}
+
+/* Título decorado */
+.titulo-decorado {
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  opacity: 0;
+  animation: aparecerTitulo 1.5s ease-out 1.2s forwards;
+}
+
+.decor-line {
+  margin: 0;
+  font-weight: bold;
+}
+
+.titulo-texto {
+  margin: 0;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+/* Animaciones */
+@keyframes aparecerLogo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerTitulo {
+  to {
+    opacity: 1;
+  }
+}

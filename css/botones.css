@@ -1,0 +1,137 @@
+/* Contenedor de botones flotantes */
+.botones-container {
+  margin: 30px auto 50px;
+  max-width: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  min-height: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecerBotones 1.5s ease-out forwards;
+  animation-delay: 1.7s;
+}
+
+/* Animación para que aparezcan suavemente */
+@keyframes aparecerBotones {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo base del botón contenedor */
+.boton-desplegable {
+  position: relative;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Imagen principal del botón */
+.btn-img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Imagen hover superpuesta */
+.btn-img.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+/* Efecto al pasar el mouse: cambia imagen */
+.boton-desplegable:hover .btn-img {
+  opacity: 0;
+}
+.boton-desplegable:hover .btn-img.hover-img {
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Estilo del panel desplegable */
+.boton-desplegable .panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px;
+  font-size: 16px;
+  color: #222;
+  text-align: left;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Mostrar panel al hacer hover */
+.boton-desplegable:hover .panel {
+  display: block;
+}
+
+/* Fondo difuminado del panel (opcional, ajusta la imagen) */
+.boton-desplegable .panel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Imagenes/Mario2.jpeg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  opacity: 0.4;
+  border-radius: 6px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Lista del panel */
+.panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.panel ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.panel ul li:last-child {
+  border-bottom: none;
+}
+
+.panel ul li:hover {
+  background-color: #ddd;
+}
+
+.panel li a {
+  display: block;
+  padding: 12px 20px;
+  color: #222;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.panel li a:hover {
+  background-color: #f2f2f2;
+}

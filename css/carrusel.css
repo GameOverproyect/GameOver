@@ -1,0 +1,51 @@
+/* Contenedor principal del slider */
+.slider-box {
+  width: 800px; 
+  height: auto;
+  margin: 0% auto 0;
+  overflow: hidden; /* Muy importante para que funcione bien */
+  animation: Aparecercarrusel 1.5s ease-out 1.2s forwards;
+  z-index: 1;
+}
+@keyframes Aparecercarrusel {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Lista que contiene las imágenes */
+.slider-box ul {
+  display: flex;
+  padding: 0;
+  width: 1400%; /* El doble de imágenes -> el doble de ancho */
+  
+  /* Nombre de la animación, duración, repetición y velocidad */
+  animation: slide-infinito 40s infinite linear;
+}
+
+/* Elementos de la lista */
+.slider-box li {
+  width: 100%;
+  list-style: none;
+}
+
+/* Imágenes */
+.slider-box img {
+  width: 100%;
+}
+
+/* Pausar al pasar el ratón (opcional pero recomendado) */
+.slider-box:hover ul {
+  animation-play-state: paused;
+}
+
+/* La animación que hace la magia */
+@keyframes slide-infinito {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

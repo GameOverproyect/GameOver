@@ -1,0 +1,19 @@
+@keyframes aparecerLogo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerTitulo {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes aparecerBotones {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
