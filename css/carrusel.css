@@ -6,6 +6,7 @@
   overflow: hidden; /* Muy importante para que funcione bien */
   animation: Aparecercarrusel 1.5s ease-out 1.2s forwards;
   z-index: 1;
+  position: relative;
 }
 @keyframes Aparecercarrusel {
   to {

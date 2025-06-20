@@ -7,7 +7,9 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 30px;
-  min-height: 300px;
+  position: relative;
+  z-index: 10;
+ 
   opacity: 0;
   transform: translateY(20px);
   animation: aparecerBotones 1.5s ease-out forwards;
@@ -28,6 +30,7 @@
   width: 200px;
   margin: 10px;
   cursor: pointer;
+  z-index: 888;
 }
 
 /* Imagen principal del botón */
@@ -38,7 +41,7 @@
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   display: block;
   position: relative;
-  z-index: 2;
+  z-index: 900;
 }
 
 /* Imagen hover superpuesta */
