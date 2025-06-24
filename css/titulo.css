@@ -78,3 +78,18 @@ header {
     opacity: 1;
   }
 }
+.btn-volver{
+  position: fixed;   
+  top: 35px;
+  left: 25px;
+  z-index: 1000;
+}
+.btn-volver img{
+  width: 80px;
+  height: auto;
+  transition: transform 0.2s;
+}
+.btn-volver img:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
